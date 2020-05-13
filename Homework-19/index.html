@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/index.css">
+    <title>Marvel Super Hero Squad</title>
+</head>
+<body>
+   
+       
+    <div class="header-div w-100 ">
+        <p class="text-center">Super Hero Squad <sup> Metro City</sup></p>
+    </div>
+    
+
+    <div class="container">
+        <div class="spider-main">
+            <div class="spider-div" > </div>
+        </div>
+        
+
+        <div class="card mr-3 " >
+            <img src="img/molecule.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Molecule Man</h5>
+                <span class="mb-1">Strength:</span>
+                <div class="moleculeInfoDivision"> </div>
+
+                <h5>Powers:</h5>
+                <div id="powersOfMolecule" class="p-2"> </div>
+
+                <a href="https://en.wikipedia.org/wiki/Molecule_Man" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+
+        <div class="card mr-3" >
+            <img src="img/madame.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Madame Uppercut</h5>
+                <span class="mb-1">Strength:</span>
+                <div class="madameInfoDivision"> </div>
+                <h5>Powers:</h5>
+                <div id="powersOfMadame" class="p-2">  </div>
+
+                <a href="https://en.wikipedia.org/wiki/Madame_Web" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+
+        <div class="card " >
+            <img src="img/flame.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Eternal Flame</h5>
+                <span class="mb-1">Strength:</span>
+                <div class="flameInfoDivision"> </div>
+                <h5>Powers:</h5>
+                <div id="powersOfFlame" class="p-2"> </div>
+
+                <a href="https://marvelcinematicdatabase.fandom.com/wiki/Eternal_Flame" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+        
+    </div>
+
+
+               
+            
+            
+    
+<script>
+
+
+
+
+
+
+
+    var url = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json" ;
+
+    function getSuperSquad(url) {
+            fetch(url ).then(response => { // 
+                return response.json();
+            }).then(data => {
+                console.log(data.members);
+
+                var moleculeMan = data.members[0];
+                var madameUppercut = data.members[1];
+                var eternalFlame = data.members[2];
+
+                //---------Molecule Man--------                
+
+                var moleculeInfoDivision = document.querySelector('.moleculeInfoDivision');             
+                var moleculePowers = document.querySelector('#powersOfMolecule');
+                createDynamicCard(moleculeMan , moleculeInfoDivision , moleculePowers );
+                    
+
+                //----------Madame Uppercut--------
+
+                
+                var madameInfoDivision = document.querySelector('.madameInfoDivision')
+                var madamePowers = document.querySelector('#powersOfMadame');                
+                createDynamicCard(madameUppercut , madameInfoDivision , madamePowers );
+                
+                //-------Eternal Flame--------------
+
+                var flameInfoDivision = document.querySelector('.flameInfoDivision');
+                var flamePowers = document.querySelector('#powersOfFlame');
+                createDynamicCard(eternalFlame , flameInfoDivision , flamePowers);
+
+  
+
+            });
+
+
+    }
+   
+
+    getSuperSquad(url);
+
+
+
+
+
+
+
+    function createDynamicCard (member , division , power){
+
+
+
+                var ageOfMember = document.createElement('p');
+                
+                ageOfMember.textContent ="Age: " + member.age;
+
+                var secretOfMember = document.createElement('p');
+
+                secretOfMember.textContent ="Secret Identity : " + member.secretIdentity;
+
+                var strengthofMember = document.createElement('div');
+
+                var thisMember = member ;
+
+
+                strengthofMembers(thisMember , strengthofMember);
+
+                var thisDivision = division;
+
+               
+
+                var progressMain = document.createElement('div');
+                progressMain.setAttribute('class' , "progress my-3")
+                progressMain.setAttribute('style', ' height:3px');
+
+                thisDivision.appendChild(progressMain);
+                progressMain.appendChild(strengthofMember);
+
+                
+
+                
+
+                var infoO = thisDivision ;
+                infoO.appendChild(ageOfMember);
+                infoO.appendChild(secretOfMember);
+
+                addPowers(thisMember, power);
+                
+
+
+
+    }
+
+    function addPowers (thisMember , powersDirectory){
+                    for (var z=0; z < thisMember.powers.length ; z++){
+                        var thisMemberStrength = document.createElement('p');
+                        thisMemberStrength.textContent = thisMember.powers[z];
+
+                        powersDirectory.appendChild(thisMemberStrength);
+                    }
+                }
+
+
+
+    function strengthofMembers (member , strengthVar){
+                    for (var i = 0 ; i < member.powers.length ; i++ ){
+                        var realStrengthOfmember = i + 1;
+
+                    if (realStrengthOfmember === 1 ){
+                        strengthVar.setAttribute('class','progress-bar bg-success' );
+                        strengthVar.setAttribute('role','progressbar' );                       
+
+                        strengthVar.setAttribute('style', 'width: 60%');
+                        strengthVar.setAttribute('aria-valuemin', '0');
+                        strengthVar.setAttribute('aria-valuemax', '100')
+
+                    }else if (realStrengthOfmember >= 2 && realStrengthOfmember <=4 ){
+                        strengthVar.setAttribute('class','progress-bar bg-warning' );
+                        strengthVar.setAttribute('role','progressbar' );                       
+
+                        strengthVar.setAttribute('style', 'width: 80%');
+                        strengthVar.setAttribute('aria-valuemin', '0');
+                        strengthVar.setAttribute('aria-valuemax', '100')
+                    }else if ( realStrengthOfmember > 4 ){
+                        strengthVar.setAttribute('class','progress-bar bg-danger' );
+                        strengthVar.setAttribute('role','progressbar' );                       
+
+                        strengthVar.setAttribute('style', 'width: 100%');
+                        strengthVar.setAttribute('aria-valuemin', '0');
+                        strengthVar.setAttribute('aria-valuemax', '100')
+                    }
+                    }};
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
+</body>
+</html>

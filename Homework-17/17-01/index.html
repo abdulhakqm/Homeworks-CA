@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Lorem Generator</title>
+
+    <style>
+      .divTwo {
+          background: rgba(255, 104, 104, 0.753);
+      }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <header class="text-center p-3"><h1>Lorem Generator</h1></header>
+        <main>
+            <div class="w-50 m-auto">
+                <label for="loremSelector" >Select number of Lorem words you want(up to 50):</label>
+                <select name="loremSelector" id="loremSelector" class="form-control " >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+
+                </select>
+            </div>
+            <div class="divTwo mt-3 p-3 rounded text-light">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        var selector = document.querySelector('#loremSelector');
+        var paragraph = document.querySelector('p');
+        var lorem = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad id, labore quae hic, corporis voluptatem at porro tempora quis deserunt error alias dolor eaque sequi nobis necessitatibus doloribus culpa laudantium mollitia minus vitae, aliquam reprehenderit quam. Deleniti qui veritatis iste saepe placeat, fuga, error quibusdam sit fugit officiis adipisci a."
+        
+        var loremSplit = lorem.split(" ");
+        console.log(loremSplit);
+
+        selector.addEventListener('change' , loremChanger);
+        function loremChanger() {
+            var selectedNumber = this.value ;
+
+            var selectedLorem = loremSplit.slice(0 , selectedNumber);
+
+            var joinedLorem = selectedLorem.join(",");
+
+            var finalLorem = joinedLorem.replace(/,/g ," "); 
+
+            paragraph.textContent = finalLorem ;            
+
+            
+
+        }
+        
+    </script>
+    
+</body>
+</html>

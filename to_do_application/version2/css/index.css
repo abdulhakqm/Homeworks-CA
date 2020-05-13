@@ -1,0 +1,46 @@
+.application {
+    
+    border-radius: 1rem;
+    
+    margin: 0 auto;
+    margin-top: 1rem;
+    box-shadow: 1px 1px 5px black;
+
+}
+header {
+    
+    background-color: black;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    text-align: center;
+    color: silver;
+    font-family: 'Bangers', cursive;
+
+}
+.mainOfNewEvent  {
+    background-color:white;
+}
+.footerOfNewEvent {
+    height: 5rem;
+}
+
+#eventsCollapse {
+    min-height: 0px;
+}
+label {
+    color: rgb(0, 80, 0);
+}
+.eventsButton {
+    background-color: #008080;
+    color: white;
+}
+.eventsButton:hover {
+    color: white;
+    background-color: #006b6b;
+    
+}
+.eventCard {
+    box-shadow: 2px 2px 5px grey;
+}
+
+

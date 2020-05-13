@@ -1,0 +1,93 @@
+<!--h-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5 border border-secondary p-3 app ">
+            <h1>Enter your to do plans</h1>
+            <hr style="width: 96%;">
+            <label for="time">Chose the time for your plan</label>
+            <input type="time" id="time" class="form-control mb-2">
+            <label for="plansInput">Describe your plan</label>
+            <input type="text" class="form-control"  id="plansInput" >
+            <button class="btn btn-danger w-100 mt-1 mb-3" id="addButton">ADD</button>
+            <hr style="width: 96%;">
+
+            <div class="added-items-div w-100">
+                <h2 id="red">Worth remembering</h2>
+            </div>
+            <hr style="width: 96%;">
+            
+        </div>
+    </div>
+   
+    
+    <script>
+        var addButton = document.querySelector("#addButton");
+        var toDoInput = document.querySelector("#plansInput");
+        var plansSection = document.querySelector(".added-items-div");
+        var choosenTime = document.querySelector('#time');
+
+
+        var inputedPlans = toDoInput.value ; 
+
+        addButton.addEventListener ('click' , planArranger);
+
+        
+        
+        var newPlan;
+        var deleteButton;
+        var newPlanSection;
+        
+
+
+        function planArranger (){
+
+            
+            
+
+            newPlan = document.createElement ('h5');
+            newPlan.setAttribute('class','text-uppercase')
+            newPlan.textContent = "-"+ " " + choosenTime.value +""+"-" + '"' +toDoInput.value + '"';
+
+            deleteButton = document.createElement('button');
+            deleteButton.textContent = "Done";
+            deleteButton.setAttribute ('type', 'button',);
+            deleteButton.setAttribute ('class', 'btn btn-danger col-4',);
+            
+            newPlanSection = document.createElement('div');
+            newPlanSection.setAttribute('class','d-flex justify-content-between mx-1 my-2 px-2 py-2 border border-seccondary rounded  ');
+
+            plansSection.appendChild(newPlanSection);
+            newPlanSection.appendChild(newPlan);
+            newPlanSection.appendChild(deleteButton);
+
+            
+
+            deleteButton.addEventListener ('click', deleteFunction);
+
+                function deleteFunction (){
+                plansSection.removeChild(this.parentNode);
+}
+            
+                    
+        }
+        
+        
+       
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

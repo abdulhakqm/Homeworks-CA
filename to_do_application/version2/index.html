@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/index.css">
+    <title>App-to-do</title>
+</head>
+<body>
+    <div class="container ">
+        
+        <div class="application w-75">
+            <header>
+                <h2>EVENT LISTENER</h2>
+            </header>
+            <div class="upperPart w-100">
+                <div class="headerOfNewEvent row py-3">
+                    <button role="button" class="btn btn-success col-6 offset-3 port-item mt-5" data-toggle="collapse" data-target="#addNewEventCollapse"><span>Add New Event</span></button>
+                    <button role="button" class=" eventsButton btn col-6 offset-3 mt-2 port-item" data-toggle="collapse" data-target="#eventsCollapse"><span>Events</span></button>
+                </div>
+               
+                <div class="mainOfNewEvent w-100 px-5 collapse" id="addNewEventCollapse" >
+                    
+                    
+                    <label for="dateInput" class="px-3 pt-1">Enter The Date of Your Event</label>
+                    <input type="date" id="dateInput" class="form-control ">
+                    
+                    <label for="timeInput" class="px-3 pt-1">Enter The Time of Your Event</label>
+                    <input type="time" id="timeInput" class="form-control ">
+
+                    <label for="titleInput" class="px-3 pt-1">Title Your Event</label>
+                    <input type="text" id="titleInput" class="form-control px-2" placeholder="Title">
+
+                    <button role="button" class="btn btn-success w-100 mt-3 mb-3 " id="addButton"><span>Add To Events</span></button>
+                    
+                </div>
+
+                <div class="mainOfEvents w-100 px-5 py-2 collapse" id="eventsCollapse">
+                    
+                </div>
+
+                <div class="footerOfNewEvent w-100 "></div>
+            </div>
+        </div>
+    
+    </div>
+    
+
+    
+
+
+
+        <script>
+            
+            var date = document.querySelector('#dateInput');
+            var time = document.querySelector('#timeInput');
+            var title = document.querySelector('#titleInput');
+            var addButton = document.querySelector('#addButton');
+            var eventContainer = document.querySelector('#eventsCollapse');
+
+
+
+
+            addButton.addEventListener('click', additem);
+
+                var eventCard;
+                
+                var deleteButton;
+                var timeInput;
+                var dateInput;
+                var titleInput;
+
+
+            function additem (){
+
+                eventCard = document.createElement('div');                 
+                eventCard.setAttribute('class', 'my-3 col-8 offset-2 py-1 px-1 rounded eventCard ');
+                eventContainer.appendChild(eventCard);              
+              
+              
+                dateInput = document.createElement('p');
+                dateInput.setAttribute('class', 'dateSpan px-2')
+                dateInput.textContent =  date.value;
+
+                eventCard.appendChild(dateInput);
+                
+                titleInput = document.createElement('p');
+                titleInput.textContent = title.value ;
+                titleInput.setAttribute('class', 'pl-3 h3 text-uppercase ')
+                eventCard.appendChild(titleInput);
+
+                timeInput = document.createElement('span');
+                timeInput.setAttribute('class', ' px-2 timeSpan');
+                timeInput.textContent = "at :" + " " + time.value ;
+                eventCard.appendChild(timeInput);
+
+            
+
+                deleteButton = document.createElement ('button');
+                deleteButton.setAttribute('class', ' offset-8 px-2 btn btn-sm btn-success');
+                deleteButton.textContent = "Finished";
+
+                
+                eventCard.appendChild(deleteButton);
+
+                
+
+                alert("Added to Events")
+
+                deleteButton.addEventListener('click', deleteFunction );
+                function deleteFunction (){
+
+                    eventContainer.removeChild(this.parentNode);
+
+                }
+
+
+
+               
+
+                
+                
+
+
+
+
+            }
+        </script>
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
+<script>
+    $('.port-item').click(function () {
+        $('.collapse').collapse('hide');
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+#navbar {
+    background-color: #3a3a3a9f;
+    border-bottom: 3px solid rgba(30, 143, 255, 0.548)
+    
+    
+}
+
+.thatBlue {
+    background-color:#1E90FF;
+}
+.thatGrey {
+    background-color: #3a3a3a;
+}
+
+
+#navbar > .navbar-brand {
+     color: rgb(226, 226, 226) ;
+}
+#homeButton , #exploreButton , #createButton , #shareButton {
+    color: rgba(226, 226, 226, 0.801) ;
+    background-color:transparent ;
+    font-size: 18px;
+
+}
+#homeButton:hover , #exploreButton:hover , #createButton:hover , #shareButton:hover {
+    color: rgb(236, 235, 235) ;
+    
+}
+
+
+#home {
+    background-image: url("../img/home.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
+}
+
+.fas {
+    font-size: 40px;
+    
+    
+}
+.home-title {
+    font-size: 2rem;
+}
+.home-title > span {
+    font-weight: bold;
+}
+
+.sign-up {
+    width: 20rem;
+    left: 200px;
+    background-color:#1E90FF
+}
+
+.home-container {
+    width: 70%;
+    margin: 0 auto;
+}
+.greyAreaExplore {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+#findOutMoreExplorer {
+    border: 1px solid rgba(212, 212, 212, 0.767);
+    color: rgba(212, 212, 212, 0.767);
+}
+#findOutMoreExplorer:hover {
+    border: 1px solid white;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+
+#explore-img {
+    max-width: 500px;
+}
+.far {
+    font-size: 3rem;
+}
+.exploreMain {
+    width: 70%;
+    margin: 0 auto;
+}
+#findOutMoreCreate {
+    border: 1px solid rgba(212, 212, 212, 0.767);
+    color: rgba(212, 212, 212, 0.767);
+}
+#findOutMoreCreate:hover {
+    border: 1px solid white;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+#contactUsButton {
+    background-color:rgb(69, 160, 250) ;
+    border: 1px solid rgba(212, 212, 212, 0.767);
+    color: white;
+}
+#contactUsButton:hover {
+    background-color:rgb(15, 135, 255) ;
+    border: 1px solid white;
+    color: white;
+    box-shadow: 1px 1px 3px grey;
+}
+
+
+
+@media screen and (max-width:1160px){
+
+    
+
+    .home-container {
+        flex-direction: column;
+    }
+    .exploreMain {
+        flex-direction: column;
+        align-content: center;
+    }
+}
+@media screen and (max-width:760px){
+    .navbar {
+        flex-direction: column;
+    }
+}

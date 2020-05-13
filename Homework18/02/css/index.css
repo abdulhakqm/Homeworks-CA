@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80);
+   
+    
+    
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+
+    
+
+}
+h1 {
+    letter-spacing: 2px;
+}
+p {
+    align-self: center;
+    margin-top: 5rem;
+    font-size: 7rem;
+    opacity: 0.6;
+}
+.main {
+    margin: 0;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+}
+.main-flex {
+    display: flex;
+    
+}
+.inner-flex {
+    display: flex;
+    flex-direction: column;
+    width:35%;
+    margin: 0 4px 0 4px;
+    
+}
+.inner-flex > span {
+    font-size: 3rem;
+    font-weight: 500;
+    align-self: center;
+
+}
+.inner-flex > small {
+    align-self: center;
+    
+    
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Fav Fruits</title>
+    <style>
+        .container {
+            background-color: rgba(214, 214, 214, 0.185);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3 p-3 rounded">
+        <header class="text-center text-secondary"><h1>Favourite Fruits</h1></header>
+        <hr>
+        <div class="w-50 m-auto">
+            <label for="fruitInput">Please type your favourited fruits separated by comma (,):</label>
+            <input type="text" class="form-control" id="fruitInput">
+            <span>You can type fruits only from this list:</span>
+            <p class="py-1">apples, pears, oranges, pineapples, kiwis, bananas, berries, watermelons, lemons </p>
+            <button type="button" class="btn btn-primary w-100 ">Add fruits</button>
+            <div class="invalid-feedback p-2">
+               
+            </div>
+        </div>
+
+        <div class="w-100 validInputsSection mt-5">
+
+        </div>
+    </div>
+
+    <script>
+        var input = document.querySelector('#fruitInput');
+        var button = document.querySelector('button');
+        var invalidFeedback = document.querySelector('.invalid-feedback');
+        var newSection = document.querySelector('.validInputsSection');
+
+        var validFruits = ["apples","pears", "oranges","pineapples","kiwis","bananas","berries","watermelons","lemons"];
+
+
+        button.addEventListener('click', fruitSelector);
+        function fruitSelector(){   
+
+            var userInput = input.value ? input.value : false;
+
+            if (userInput !== false) {
+                var userInputArr = userInput.split(",");
+
+                for (var i = 0; i < userInputArr.length; i++) {
+                    if (validFruits.indexOf(userInputArr[i]) !== -1){
+
+                        input.setAttribute('class', 'form-control is-valid')
+
+                        var createdDiv = document.createElement('div');
+                        createdDiv.setAttribute('class', 'py-2 px-5 my-2 rounded bg-secondary d-flex justify-content-between text-light');
+
+                        var createdFruit = document.createElement('h4');
+                        createdFruit.textContent = userInputArr[i].trim();
+
+                        var deleteButton = document.createElement('button');
+                        deleteButton.setAttribute('class', 'btn btn-sm btn-danger');
+                        deleteButton.textContent = "Remove";
+
+                        newSection.appendChild(createdDiv);
+                        createdDiv.appendChild(createdFruit);
+                        createdDiv.appendChild(deleteButton);
+
+                        deleteButton.addEventListener('click', deletefruit);
+                        function deletefruit(){
+                            newSection.removeChild(this.parentNode);
+                        }
+
+
+                    }else {
+                        input.setAttribute("class", "form-control is-invalid");
+                        invalidFeedback.textContent = " We cant add " + " \" " + userInputArr[i].trim() + " \" " + " . Its not in our fruit list."
+
+                    }
+                }
+            }
+
+
+        }
+
+            
+    </script>
+    
+
+    
+</body>
+</html>

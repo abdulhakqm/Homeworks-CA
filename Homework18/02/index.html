@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <title>New Year Countdown</title>
+
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1>New Year Countdown</h1>
+            <div class="main-flex">
+                <div class="inner-flex">
+                    <span id="days"></span>
+                    <small>days</small>
+                </div>
+                <div class="inner-flex">
+                    <span id="hours"></span>
+                    <small>hours</small>
+                </div>
+                <div class="inner-flex">
+                    <span id="minutes"></span>
+                    <small>minutes</small>
+                </div>
+                <div class="inner-flex">
+                    <span id="seconds"></span>
+                    <small>seconds</small>
+                </div>
+            </div>
+            <p>2021</p>
+        </div>
+    </div>
+   
+    
+
+<script>
+
+ 
+
+    var days = document.querySelector('#days');
+    var hours = document.querySelector('#hours');
+    var minutes = document.querySelector('#minutes');
+    var seconds = document.querySelector('#seconds');
+
+
+    var currentYear = new Date().getFullYear();
+    var nextNewYear = new Date('January 01 ' + (currentYear + 1) + ' 00:00:00');
+
+    
+
+    
+    setInterval(daysLeft, 1000);
+    function daysLeft (){
+        var currentTime = new Date();
+        var diff = nextNewYear - currentTime;
+
+        var s = 1000;
+        var m = s * 60;
+        var h = m * 60;
+        var d = h * 24; 
+
+        var daysLeft = Math.floor(diff / d );        
+        var hoursLeft = Math.floor((diff-(daysLeft*d))/h);
+        var minutesLeft = Math.floor((diff-(daysLeft*d + hoursLeft*h))/m);
+        var secondsLeft = Math.floor((diff-(daysLeft*d + hoursLeft*h + minutesLeft*m))/s);
+
+        days.textContent = daysLeft;
+        hours.textContent = hoursLeft;
+        minutes.textContent = minutesLeft;
+        seconds.textContent = secondsLeft;
+        
+        
+    } ;
+
+    
+    
+    
+</script>
+    
+</body>
+</html>
