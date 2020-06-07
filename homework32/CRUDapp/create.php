@@ -1,25 +1,6 @@
 <?php
-require 'engine.php';
 
-if (isset($_POST['submit'])){
-    if (!empty($_POST['firstname']) && !empty($_POST['lastname'])){
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $dateNow = date('y-m-d');
-
-        var_dump($firstname) ;
-        echo $lastname;
-        echo $dateNow;
-
-
-    }else{
-        echo "Enter data";
-    }
-}
-
-
-
-
+include 'functions.php';
 
 
 ?>
