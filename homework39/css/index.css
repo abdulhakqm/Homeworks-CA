@@ -1,0 +1,66 @@
+.container{
+    width:100%;
+    background-color: rgba(1, 50, 67, 1);
+    color:white;
+    display: flex;
+    justify-content:space-between; 
+               
+}
+.invoice {
+    float: left;
+    width: 30%;
+}
+.h-one {
+    margin: 10px 30px;
+   
+}
+.img {
+    width: 100px;
+    margin:10px 0px 10px 10px ;
+}
+
+.company-info {
+    margin-top: 20px;
+    float: right;
+    width: 30%;
+    
+}
+.main {
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .main th {
+    text-align: left;
+    width: 110px;
+  }
+  .product {
+    width: 220px;
+  }
+  .notes-th {
+    width: 650px;
+    text-align: left;
+    background-color: silver;
+    padding: 20px;
+  }
+  .foot{
+    width:100%;
+    
+}
+.left-foot {
+    width: 50%;
+    
+    float: left;
+
+}
+.right-foot {
+    background-color: rgba(1, 50, 67, 1);
+    width:40%; 
+    float: right;
+}
+.total {
+    color: white;
+    text-align: right;
+    padding: 20px;
+    margin-bottom: 0;
+}

@@ -1,0 +1,10 @@
+{
+    "name": "abdul/homework39",
+    "description": "package mpdf",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "mpdf/mpdf": "dev-master"
+    }
+}
